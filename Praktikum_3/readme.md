@@ -21,7 +21,7 @@ Tugas praktikum ini adalah membuat portofolio menggunakan HTML dan CSS. Praktiku
 
 ### Struktur HTML
 
-File HTML ini terdiri dari elemen header, main, dan section
+File HTML ini terdiri dari elemen header, main, dan section.
 
 ```html
 <!DOCTYPE html>
