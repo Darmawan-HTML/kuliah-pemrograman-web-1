@@ -7,7 +7,6 @@ Tugas praktikum ini adalah membuat portofolio menggunakan HTML dan CSS. Praktiku
 ```bash
 📦Praktikum_3
  ┣ 📂css
- ┃ ┣ scroll.css
  ┃ ┗ style.css
  ┣ 📂image
  ┃ ┣ certi.png
@@ -15,8 +14,7 @@ Tugas praktikum ini adalah membuat portofolio menggunakan HTML dan CSS. Praktiku
  ┃ ┣ programmingIcons2.jpg
  ┃ ┗ project.png
  ┣ index.html
- ┣ readme.md
- ┗ scroll.html
+ ┗ readme.md
 ```
 
 ## Analisis HTML
@@ -90,18 +88,14 @@ Main berisi konten utama dari halaman, termasuk rotasi gambar dan section-sectio
 ## Analisis CSS
 
 ### Layer CSS
-
-CSS Layer adalah fitur CSS yang memungkinkan kita untuk mengelompokkan deklarasi CSS berdasarkan urutan prioritas.
-
 ```css
 @layer support, demo;
 @import "https://unpkg.com/open-props" layer(support.design-system);
 ```
+- `@layer support, demo;` Mendeklarasikan layers CSS, membantu mengatur urutan spesifikasi CSS.
+- `@import "https://unpkg.com/open-props" layer(support.design-system);` Mengimpor file CSS dari CDN Open Props, yang menyediakan seperti ukuran, warna, shadow, font-size, dll.
 
-### Animasi Fade
-
-Animasi utama yang digunakan adalah fade dengan transformasi 3D.
-
+### Animasi `@keyframes fade`
 ```css
 @keyframes fade {
     0% {
@@ -158,8 +152,10 @@ Animasi utama yang digunakan adalah fade dengan transformasi 3D.
     }
 }
 ```
-
-Animasi ini mengubah opacity dan melakukan rotasi 3D pada elemen, menciptakan efek perpindahan halus.
+- `perspective(1000px)` menambahkan kedalaman 3D.
+- `rotate`Y & `rotateX` memberi efek rotate mendekati sumbu 3D.
+- `opacity` + `transform` → kombinasi fade-in / fade-out + transform untuk transisi halus.
+- Vendor prefixes (`-webkit-`, `-moz-`, dll.) dipakai untuk kompatibilitas.
 
 ### Scroll-Driven Animations
 
@@ -223,17 +219,80 @@ Animasi ini mengubah opacity dan melakukan rotasi 3D pada elemen, menciptakan ef
     }
 }
 ```
+- `view-timeline: --section-1 y;` membuat view timeline untuk section tersebut. `y` menandakan sumbu vertikal (scroll-y).
+- `timeline-scope` (pada `body`) mendefinisikan timeline yang dapat diakses oleh `animation-timeline`.
+- `animation-timeline: --section-1;` mengikat `@keyframes` ke timeline yang dibuat dari `view-timeline`. Progres animasi dikontrol oleh posisi scroll terhadap section.
+- `animation-range: contain;` membatasi pemutaran animasi sehingga animation hanya “berjalan” saat elemen terkait berada dalam range yang diharapkan. Ini mencegah animasi berjalan ketika section tidak terlihat.
+- `animation: fade ease both;` nama animasi + timing function + fill-mode. Tidak ada `duration` eksplisit; saat menggunakan scroll-driven animation, implementasi browser menerjemahkan timeline ke progress animasi. Jika di beberapa browser animasi tidak berjalan, tambahkan animation-duration eksplisit untuk debugging.
 
-Kode ini:
+### root variables
+```css
+:root {
+    --main-column: 1024px;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+html {
+    block-size: 100%;
+    background: var(--gray-2);
+}
+body {
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+}
+```
+- `box-sizing: border-box` mempermudah perhitungan layout (padding/border ikut menghitung ukuran elemen).
+- `block-size` / `inline-size` adalah properti logical (menggantikan height/width).
+- `--main-column` ditentukan untuk membatasi lebar konten utama; nilai lain (size token, shadow, dsb.) berasal dari Open Props.
 
--   Membuat timeline untuk setiap section `view-timeline`
--   Mendefinisikan lingkup timeline di body `timeline-scope`
--   Menghubungkan setiap gambar `.face` dengan timeline yang tertentu `animation-timeline`
--   Membuat animasi `fade` pada setiap gambar
+### Header Styling
+```css
+header {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    inset: 0 0 auto 0;
+    background: white;
+    box-shadow: var(--shadow-1);
+    block-size: var(--size-9);
+    padding-inline: var(--size-7);
 
-### Styling Layout
+    > * {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-Layout utama menggunakan grid dengan dua kolom
+    nav {
+        display: flex;
+        gap: var(--size-2);
+
+        > a {
+        color: CanvasText;
+            text-decoration: none;
+            display: inline-flex;
+            place-items: center;
+            padding-inline: var(--size-4);
+            padding-block: var(--size-2);
+
+            &.cta {
+                background: oklch(70% 0.3 0);
+                border-radius: var(--radius-round);
+                color: white;
+            }
+        }
+    }
+}
+```
+- `position: fixed` + `inset: 0 0 auto 0;` header ditempelkan di atas: shorthand `inset: top right bottom left`.
+- `> *` (child combinator) mengatur anak langsung header agar menjadi flex container.
+- `inline-size` & `block-size` → ukuran secara logis (pengganti width/height).
+- `.cta` pakai `oklch(...)` — warna di ruang warna OKLCH (modern, perceptually-uniform). Pastikan fallback warna untuk browser yang belum support.
+
+### Layout Main
 
 ```css
 main {
@@ -255,35 +314,26 @@ main {
         margin-right: 100px;
     }
 }
-.rotating-viewport {
-    grid-column: 2;
-    grid-row: 1;
-    display: grid;
-    position: sticky;
-    top: 10svh;
-    right: 0;
-    height: 80svh;
-    aspect-ratio: var(--ratio-portrait);
-    & .face {
-        grid-area: 1 / 1;
-        backface-visibility: hidden;
-        display: grid;
-        align-items: center;
-
-        > img {
-            inline-size: 100%;
-        }
-    }
-}
 ```
-
-Viewport gambar menggunakan `position: sticky` sehingga tetap terlihat saat scroll, sementara setiap gambar `.face` ditempatkan di area grid yang sama.
+- `grid-auto-rows: 100svh` tiap baris grid setinggi 100svh (svh = small viewport height, unit modern untuk mengatasi UI bar di mobile). Hasil: setiap section akan memenuhi viewport tinggi (full-page sections).
+- `grid-template-columns: 2fr 1fr` dua kolom: kiri lebih lebar (konten), kanan untuk rotating-viewport.
+- `place-items: center start` *align-items: center & justify-items: start* (atau sebaliknya bergantung konteks).
+- Media query (`width <=1080px`) ini adalah sintaks relational media queries yang lebih baru, sama saja dengan @media (max-width: 1080px).
+- `margin-right: 100px;` memberikan ruang ekstra supaya teks tidak menempel ke area gambar.
 
 ### Gradient Text
-
-Text gradien yang digunakan pada portofolio menggunakan OKLAB dan OKLCH (mirip dengan RGB). OKLAB digunakan untuk mempersepsikan warna dengan mencoba membuat jarak antar warna lebih konsisten. OKLCH representasi silinder dari ruang warna OKLAB yang terdiri dari Lightness, Chroma, dan Hue
-
 ```css
+.hero-text {
+    text-wrap: balance;
+    max-inline-size: var(--size-header-1);
+    font-size: var(--font-size-7);
+    margin-inline: 0 auto;
+
+    > div {
+        display: inline;
+    }
+}
+
 .gradient-text-1 {
     background: linear-gradient(
         to top right in oklab,
@@ -328,3 +378,34 @@ Text gradien yang digunakan pada portofolio menggunakan OKLAB dan OKLCH (mirip d
     -webkit-text-fill-color: transparent;
 }
 ```
+- `text-wrap: balance;` upaya menyeimbangkan pembagian baris pada teks.
+- Text gradien yang digunakan adalah OKLAB dan OKLCH (mirip dengan RGB). OKLAB digunakan untuk mempersepsikan warna dengan mencoba membuat jarak antar warna lebih konsisten. OKLCH representasi silinder dari ruang warna OKLAB yang terdiri dari Lightness, Chroma, dan Hue.
+
+### Rotating Viewport
+```css
+.rotating-viewport {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    position: sticky;
+    top: 10svh;
+    right: 0;
+    height: 80svh;
+    aspect-ratio: var(--ratio-portrait);
+
+    & .face {
+        grid-area: 1 / 1;
+        backface-visibility: hidden;
+        display: grid;
+        align-items: center;
+
+        > img {
+            inline-size: 100%;
+        }
+    }
+}
+```
+- `position: sticky; top: 10svh;` viewport akan “menempel” ketika pengguna scroll sampai titik tertentu (tetap terlihat).
+- `grid-area: 1 / 1` pada `.face`, semua `.face` menumpuk di satu area (tumpukan gambar). Animasi mengganti visibility/opacitas tiap `.face`.
+- `backface-visibility: hidden` mencegah tampilan “belakang” elemen saat diputar.
+- `>img { inline-size: 100% }` memastikan gambar memenuhi lebar (atau inline-size 100%) dari kontainer.

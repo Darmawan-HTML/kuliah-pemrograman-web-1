@@ -23,17 +23,12 @@
 
     70% {
         opacity: 1;
-        transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg)
-            rotate(-1deg);
-        -webkit-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg)
-            rotate(-1deg);
-        -moz-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg)
-            rotate(-1deg);
-        -ms-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg)
-            rotate(-1deg);
-        -o-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg)
-            rotate(-1deg);
-    }
+        transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg)            rotate(-1deg);
+        -webkit-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg);
+        -moz-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg);
+        -ms-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg);
+        -o-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg);
+}
 
     95% {
         opacity: 1;
