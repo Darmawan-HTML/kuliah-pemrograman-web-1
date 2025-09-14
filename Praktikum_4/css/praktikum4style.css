@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import "https://unpkg.com/open-props" layer(design.system);
 
 :root {
     interpolate-size: allow-keywords;
@@ -19,7 +20,7 @@ body {
 .site-main {
     top: 0;
     position: sticky;
-	z-index: 1;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     padding-left: 8em;
@@ -28,6 +29,102 @@ body {
     background-color: oklch(0.73 0.0584 251.06);
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
+
+	select,
+      ::picker(select) {
+        appearance: base-select;
+      }
+
+      select {
+        border: 2px solid #ddd;
+        background: #eee;
+        padding: 10px;
+        transition: 0.4s;
+      }
+
+      select:hover,
+      select:focus {
+        background: #ddd;
+      }
+
+      option {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+
+        border: 2px solid #ddd;
+        background: #eee;
+        padding: 10px;
+        transition: 0.4s;
+      }
+
+      option:first-of-type {
+        border-radius: 8px 8px 0 0;
+      }
+
+      option:last-of-type {
+        border-radius: 0 0 8px 8px;
+      }
+
+      option:not(option:last-of-type) {
+        border-bottom: none;
+      }
+
+      option:nth-of-type(odd) {
+        background: #fff;
+      }
+
+      option:hover,
+      option:focus {
+        background: plum;
+      }
+
+      option .icon {
+        font-size: 1.6rem;
+        text-box: trim-both cap alphabetic;
+      }
+
+      select::picker-icon {
+        color: #999;
+        transition: 0.4s rotate;
+      }
+
+      select:open::picker-icon {
+        rotate: 180deg;
+      }
+
+      @starting-style {
+        ::picker(select):popover-open {
+          opacity: 0;
+        }
+      }
+
+      ::picker(select) {
+        border: none;
+      }
+
+      selectedcontent .icon {
+        display: none;
+      }
+
+      option:checked {
+        font-weight: bold;
+      }
+
+      option::checkmark {
+        order: 1;
+        margin-left: auto;
+        content: '☑️';
+      }
+
+      ::picker(select) {
+        opacity: 0;
+        transition: all 0.4s allow-discrete;
+      }
+
+      ::picker(select):popover-open {
+        opacity: 1;
+      }
 
     nav ul {
         list-style: none;
