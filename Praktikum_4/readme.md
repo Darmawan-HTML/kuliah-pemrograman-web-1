@@ -1,27 +1,50 @@
-# Portofolio
+# Praktikum 4
 
-Tugas praktikum ini adalah membuat portofolio menggunakan HTML dan CSS. Praktikum ini adalah implementasi dari teknik "scrollytelling" dengan nama fitur Scroll-Driven Animations dari CSS yaitu animasi yang dipicu oleh scroll pengguna.
+Tugas praktikum ini adalah membuat galeri dan dropdown menu di navbar. Akan ada di file `praktikum4.html` dan `praktikum4style.css`
 
 ## Struktur File
 
 ```bash
-📦Praktikum_3
+📦Praktikum_4
  ┣ 📂css
- ┃ ┗ style.css
+ ┃ ┣ 📜praktikum4style.css
+ ┃ ┗ 📜style.css
  ┣ 📂image
- ┃ ┣ certi.png
- ┃ ┣ profile.jpg
- ┃ ┣ programmingIcons2.jpg
- ┃ ┗ project.png
- ┣ index.html
- ┗ readme.md
+ ┃ ┣ 📂praktikum3Image
+ ┃ ┃ ┣ 📜certi.png
+ ┃ ┃ ┣ 📜profile.jpg
+ ┃ ┃ ┣ 📜programmingIcons2.jpg
+ ┃ ┃ ┗ 📜project.png
+ ┃ ┗ 📂praktikum4Image
+ ┃ ┃ ┣ 📜bronya.jpeg
+ ┃ ┃ ┣ 📜Castorice.jpeg
+ ┃ ┃ ┣ 📜chibiherta.jpeg
+ ┃ ┃ ┣ 📜columbina.jpeg
+ ┃ ┃ ┣ 📜columbina2.jpeg
+ ┃ ┃ ┣ 📜download.jpeg
+ ┃ ┃ ┣ 📜Elaina.jpeg
+ ┃ ┃ ┣ 📜ely.jpeg
+ ┃ ┃ ┣ 📜elyexpy.jpeg
+ ┃ ┃ ┣ 📜elysia.jpeg
+ ┃ ┃ ┣ 📜furina.jpeg
+ ┃ ┃ ┣ 📜furina2.jpeg
+ ┃ ┃ ┣ 📜Herta.jpeg
+ ┃ ┃ ┣ 📜kafka.jpeg
+ ┃ ┃ ┣ 📜kafka2.jpeg
+ ┃ ┃ ┣ 📜kurumi.jpeg
+ ┃ ┃ ┣ 📜lilit.jpeg
+ ┃ ┃ ┣ 📜March7th.jpeg
+ ┃ ┃ ┣ 📜miyabi.jpeg
+ ┃ ┃ ┣ 📜vivian.jpeg
+ ┃ ┃ ┗ 📜yumeko.jpeg
+ ┣ 📜index.html
+ ┣ 📜praktikum4.html
+ ┗ 📜readme.md
 ```
 
-## Analisis HTML
+## Struktur Umum HTML
 
-### Struktur HTML
-
-File HTML ini terdiri dari elemen header, main, dan section.
+File HTML ini terdiri dari layout 3 kolom serta navigasi dan dropdown pemilihan karakter waifu.
 
 ```html
 <!DOCTYPE html>
@@ -29,383 +52,392 @@ File HTML ini terdiri dari elemen header, main, dan section.
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Shaq Bio</title>
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="./css/praktikum4style.css" />
+        <title>Galeri</title>
     </head>
     <body>
-        <header>
-            <!-- Navigasi -->
-        </header>
-        <main class="site-main">
-            <div class="rotating-viewport">
-                <!-- Gambar-gambar yang akan beranimasi -->
-            </div>
-            <!-- Section-section dengan konten -->
-        </main>
+        <div class="site-main">...</div>
+        <div class="columns">...</div>
     </body>
 </html>
 ```
 
-### Elemen Header
+### Elemen Header (`.site-main`)
 
-Header berisi logo dan link navigasi.
+Bagian ini berisi
 
-```html
-<header>
-    <div class="site-main">
-        <div class="mock-logo">
-            <h3>Portofolio</h3>
-        </div>
-        <nav>
-            <a href="https://shaq.work">Doksli Portofolio</a>
-        </nav>
-    </div>
-</header>
-```
-
-### Elemen Main
-
-Main berisi konten utama dari halaman, termasuk rotasi gambar dan section-section dengan konten.
+-   Judul galeri `<h3>Galery</h3>`
+-   Dropdown pemilihan waifu `<select>...</select>`
+-   Navigasi sederhana `<nav>...</nav>`
 
 ```html
-<main class="site-main">
-    <div class="rotating-viewport">
-        <div class="face face-1">
-            <img src="image/profile.jpg" alt="" />
-        </div>
-        <!-- Dan seterusnya -->
+<div class="site-main">
+    <h3>Galery</h3>
+    <select id="waifu-select">
+        <button>
+            <selectedcontent></selectedcontent>
+        </button>
+        <option value="">Please choose a waifu</option>
+        <option value="the-herta">
+            <span class="icon" aria-hidden="true">😊</span>
+            <span class="option-label">The Herta</span>
+        </option>
+        <option value="columbina">
+            <span class="icon" aria-hidden="true">😚</span>
+            <span class="option-label">Columbina</span>
+        </option>
+        ...
+    </select>
+    <nav>
+        <ul>
+            <li><a href="https://shaq.work" class="navRow">...</a></li>
+            <li><a href="index.html" class="navRow">...</a></li>
+        </ul>
+    </nav>
+</div>
+```
+
+### Layout Galeri Gambar (`.columns`)
+
+```html
+<div class="columns">
+    <div class="column column-reverse">
+        <figure class="column__item">
+            <div class="column__item-imgwrap">
+                <img src="image/praktikum4Image/kafka.jpeg" />
+            </div>
+        </figure>
     </div>
-    <section>
-        <h1 class="hero-text">
-            Meet<br />
-            <div class="gradient-text-1">Shaquille Rashaun Sahl Tamrin</div>
-        </h1>
-    </section>
-    <!-- Dan seterusnya -->
-</main>
+    <div class="column">
+        <figure class="column__item">
+            <div class="column__item-imgwrap">
+                <img src="image/praktikum4Image/ely.jpeg" />
+            </div>
+        </figure>
+    </div>
+    <div class="column column-reverse">
+        <figure class="column__item">
+            <div class="column__item-imgwrap">
+                <img src="image/praktikum4Image/March7th.jpeg" />
+            </div>
+        </figure>
+    </div>
+</div>
 ```
 
-## Analisis CSS
+-   `.columns` grid dengan 3 kolom `grid-template-columns: repeat(3, 1fr)`
+-   `.column` setiap kolom berisi gambar
+-   `.column-reverse` kolom dengan arah item dibalik (reverse scroll effect)
 
-### Layer CSS
-```css
-@layer support, demo;
-@import "https://unpkg.com/open-props" layer(support.design-system);
-```
-- `@layer support, demo;` Mendeklarasikan layers CSS, membantu mengatur urutan spesifikasi CSS.
-- `@import "https://unpkg.com/open-props" layer(support.design-system);` Mengimpor file CSS dari CDN Open Props, yang menyediakan seperti ukuran, warna, shadow, font-size, dll.
+## Struktur CSS
 
-### Animasi `@keyframes fade`
-```css
-@keyframes fade {
-    0% {
-        opacity: 0;
-        transform: perspective(1e3px) rotateY(90deg) rotateX(-5deg) rotate(
-                10deg
-            );
-        -webkit-transform: perspective(1e3px) rotateY(90deg) rotateX(-5deg) rotate(
-                10deg
-            );
-        -moz-transform: perspective(1e3px) rotateY(90deg) rotateX(-5deg) rotate(
-                10deg
-            );
-        -ms-transform: perspective(1e3px) rotateY(90deg) rotateX(-5deg) rotate(
-                10deg
-            );
-        -o-transform: perspective(1e3px) rotateY(90deg) rotateX(-5deg) rotate(
-                10deg
-            );
-    }
-
-    5% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 1;
-        transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg) rotate(
-                -1deg
-            );
-        -webkit-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg) rotate(
-                -1deg
-            );
-        -moz-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg) rotate(
-                -1deg
-            );
-        -ms-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg) rotate(
-                -1deg
-            );
-        -o-transform: perspective(1e3px) rotateY(-30deg) rotateX(5deg) rotate(
-                -1deg
-            );
-    }
-
-    95% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform: perspective(1e3px) rotateY(-90deg) rotateX(10deg) rotate(
-                10deg
-            );
-    }
-}
-```
-- `perspective(1000px)` menambahkan kedalaman 3D.
-- `rotate`Y & `rotateX` memberi efek rotate mendekati sumbu 3D.
-- `opacity` + `transform` → kombinasi fade-in / fade-out + transform untuk transisi halus.
-- Vendor prefixes (`-webkit-`, `-moz-`, dll.) dipakai untuk kompatibilitas.
-
-### Scroll-Driven Animations
+### Import & root
 
 ```css
-@layer demo {
-    main > section {
-        &:nth-of-type(1) {
-            view-timeline: --section-1 y;
-        }
+@import url("https://fonts.googleapis.com/...");
+@import "https://unpkg.com/open-props" layer(design.system);
 
-        &:nth-of-type(2) {
-            view-timeline: --section-2 y;
-        }
-
-        &:nth-of-type(3) {
-            view-timeline: --section-3 y;
-        }
-
-        &:nth-of-type(4) {
-            view-timeline: --section-4 y;
-        }
-
-        &:nth-of-type(5) {
-            view-timeline: --section-5 y;
-        }
-    }
-
-    body {
-        timeline-scope: --section-1, --section-2, --section-3, --section-4,
-            --section-5;
-    }
-
-    .face {
-        animation: fade ease both;
-        animation-range: contain;
-    }
-
-    .face-1 {
-        animation-name: fade;
-        animation-timeline: --section-1;
-    }
-
-    .face-2 {
-        animation-name: fade;
-        animation-timeline: --section-2;
-    }
-
-    .face-3 {
-        animation-name: fade;
-        animation-timeline: --section-3;
-    }
-
-    .face-4 {
-        animation-name: fade;
-        animation-timeline: --section-4;
-    }
-
-    .face-5 {
-        animation-name: fade;
-        animation-timeline: --section-5;
-    }
-}
-```
-- `view-timeline: --section-1 y;` membuat view timeline untuk section tersebut. `y` menandakan sumbu vertikal (scroll-y).
-- `timeline-scope` (pada `body`) mendefinisikan timeline yang dapat diakses oleh `animation-timeline`.
-- `animation-timeline: --section-1;` mengikat `@keyframes` ke timeline yang dibuat dari `view-timeline`. Progres animasi dikontrol oleh posisi scroll terhadap section.
-- `animation-range: contain;` membatasi pemutaran animasi sehingga animation hanya “berjalan” saat elemen terkait berada dalam range yang diharapkan. Ini mencegah animasi berjalan ketika section tidak terlihat.
-- `animation: fade ease both;` nama animasi + timing function + fill-mode. Tidak ada `duration` eksplisit; saat menggunakan scroll-driven animation, implementasi browser menerjemahkan timeline ke progress animasi. Jika di beberapa browser animasi tidak berjalan, tambahkan animation-duration eksplisit untuk debugging.
-
-### root variables
-```css
 :root {
-    --main-column: 1024px;
+    interpolate-size: allow-keywords;
 }
+```
+
+-   `@import` pertama memuat font JetBrains Mono. Kedua memuat paket utilitas CSS `open-props` berguna untuk token desain
+-   `:root { interpolate-size: allow-keywords; }` Properti ini bersifat eksperimental; tujuannya mengizinkan keyword ketika interpolasi ukuran (konfigurasi eksperimental untuk rendering animasi).
+
+### \* dan body
+
+```css
 * {
     box-sizing: border-box;
-    margin: 0;
 }
-html {
-    block-size: 100%;
-    background: var(--gray-2);
-}
+
 body {
-    min-block-size: 100%;
-    font-family: system-ui, sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overscroll-behavior: none;
+    font-family: "JetBrains Mono";
 }
 ```
-- `box-sizing: border-box` mempermudah perhitungan layout (padding/border ikut menghitung ukuran elemen).
-- `block-size` / `inline-size` adalah properti logical (menggantikan height/width).
-- `--main-column` ditentukan untuk membatasi lebar konten utama; nilai lain (size token, shadow, dsb.) berasal dari Open Props.
 
-### Header Styling
-```css
-header {
-    display: flex;
-    position: fixed;
-    z-index: 1;
-    inset: 0 0 auto 0;
-    background: white;
-    box-shadow: var(--shadow-1);
-    block-size: var(--size-9);
-    padding-inline: var(--size-7);
+-   `box-sizing: border-box` ukuran elemen termasuk padding/border.
+-   `overscroll-behavior: none` mencegah efek "rubber band" / scroll chaining pada beberapa browser ketika menggulir.
 
-    > * {
-        flex: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    nav {
-        display: flex;
-        gap: var(--size-2);
-
-        > a {
-        color: CanvasText;
-            text-decoration: none;
-            display: inline-flex;
-            place-items: center;
-            padding-inline: var(--size-4);
-            padding-block: var(--size-2);
-
-            &.cta {
-                background: oklch(70% 0.3 0);
-                border-radius: var(--radius-round);
-                color: white;
-            }
-        }
-    }
-}
-```
-- `position: fixed` + `inset: 0 0 auto 0;` header ditempelkan di atas: shorthand `inset: top right bottom left`.
-- `> *` (child combinator) mengatur anak langsung header agar menjadi flex container.
-- `inline-size` & `block-size` → ukuran secara logis (pengganti width/height).
-- `.cta` pakai `oklch(...)` — warna di ruang warna OKLCH (modern, perceptually-uniform). Pastikan fallback warna untuk browser yang belum support.
-
-### Layout Main
+### `.site-main` header sticky, layout, background
 
 ```css
-main {
-    display: grid;
-    grid-auto-rows: 100svh;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--size-7);
-    place-items: center start;
-
-    @media (width <=1080px) {
-        padding-inline: var(--size-7);
-    }
-
-    > section {
-        grid-column: 1 / 2;
-        &:nth-of-type(1) {
-            grid-row: 1;
-        }
-        margin-right: 100px;
-    }
-}
-```
-- `grid-auto-rows: 100svh` tiap baris grid setinggi 100svh (svh = small viewport height, unit modern untuk mengatasi UI bar di mobile). Hasil: setiap section akan memenuhi viewport tinggi (full-page sections).
-- `grid-template-columns: 2fr 1fr` dua kolom: kiri lebih lebar (konten), kanan untuk rotating-viewport.
-- `place-items: center start` *align-items: center & justify-items: start* (atau sebaliknya bergantung konteks).
-- Media query (`width <=1080px`) ini adalah sintaks relational media queries yang lebih baru, sama saja dengan @media (max-width: 1080px).
-- `margin-right: 100px;` memberikan ruang ekstra supaya teks tidak menempel ke area gambar.
-
-### Gradient Text
-```css
-.hero-text {
-    text-wrap: balance;
-    max-inline-size: var(--size-header-1);
-    font-size: var(--font-size-7);
-    margin-inline: 0 auto;
-
-    > div {
-        display: inline;
-    }
-}
-
-.gradient-text-1 {
-    background: linear-gradient(
-        to top right in oklab,
-        oklch(55% 0.45 350),
-        oklch(95% 0.4 95)
-    )
-    fixed;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-3 {
-	background: linear-gradient(
-    to bottom in oklch,
-            oklch(75% 0.5 156),
-            oklch(70% 0.5 261)
-        )
-        fixed;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-4 {
-	background: linear-gradient(
-    to top in oklab,
-            oklch(60% 0.5 353),
-            oklch(80% 0.5 271)
-        )
-        fixed;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-5 {
-	background: linear-gradient(
-    to bottom right in oklab,
-            oklch(70% 0.5 350),
-            oklch(70% 0.5 261)
-        )
-        fixed;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-```
-- `text-wrap: balance;` upaya menyeimbangkan pembagian baris pada teks.
-- Text gradien yang digunakan adalah OKLAB dan OKLCH (mirip dengan RGB). OKLAB digunakan untuk mempersepsikan warna dengan mencoba membuat jarak antar warna lebih konsisten. OKLCH representasi silinder dari ruang warna OKLAB yang terdiri dari Lightness, Chroma, dan Hue.
-
-### Rotating Viewport
-```css
-.rotating-viewport {
-    grid-column: 2;
-    grid-row: 1;
-    display: grid;
+.site-main {
+    top: 0;
     position: sticky;
-    top: 10svh;
-    right: 0;
-    height: 80svh;
-    aspect-ratio: var(--ratio-portrait);
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 8em;
+    padding-right: 8em;
+    align-items: center;
+    background-color: oklch(0.73 0.0584 251.06);
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    /* ... diikuti nested lainnya (select, nav, ul, ...) */
+}
+```
 
-    & .face {
-        grid-area: 1 / 1;
-        backface-visibility: hidden;
+-   `position: sticky; top: 0;` header menempel di atas saat scroll (tetap terlihat).
+-   `background-color: oklch(0.73 0.0584 251.06)` format warna OKLCH.
+-   Border bottom besar membulatkan bagian bawah header untuk estetika.
+
+### Styling `select` dan `option`
+
+#### Mengatur appearance
+
+```css
+select,
+::picker(select) {
+    appearance: base-select;
+}
+```
+
+-   Hapus gaya default browser dengan `appearance`. `::picker(select)` adalah pseudo-element eksperimen yang menunjuk UI picker native.
+
+#### Visual Dasar untuk `select`
+
+```css
+select {
+    border: 2px solid #ddd;
+    background: #eee;
+    padding: 10px;
+    transition: 0.4s;
+}
+
+select:hover,
+select:focus {
+    background: #ddd;
+}
+```
+
+-   Border + background abu muda; transisi halus saat hover/focus.
+
+#### Styling tiap `option`
+
+```css
+option {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+
+    border: 2px solid #ddd;
+    background: #eee;
+    padding: 10px;
+    transition: 0.4s;
+}
+
+option:first-of-type {
+    border-radius: 8px 8px 0 0;
+}
+
+option:last-of-type {
+    border-radius: 0 0 8px 8px;
+}
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:nth-of-type(odd) {
+    background: #fff;
+}
+
+option:hover,
+option:focus {
+    background: plum;
+}
+```
+
+-   `display: flex` memungkinkan ada ikon + label dalam satu `option`
+-   Zebra striping pada opsi ganjil
+-   Hover menjadi `plum` untuk highlight
+-   Pembulatan pada opsi pertama/terakhir agar menu terlihat membulat.
+
+#### Ikon dan checkmark
+
+```css
+option .icon {
+    font-size: 1.6rem;
+    text-box: trim-both cap alphabetic;
+}
+
+option:checked {
+    font-weight: bold;
+}
+
+option::checkmark {
+    order: 1;
+    margin-left: auto;
+    content: "☑️";
+}
+```
+
+-   Ikon lebih besar `1.6rem`
+-   `text-box` dan `::checkmark` adalah fitur eksperimental: `text-box` mengontrol box teks/trim, dan `option::checkmark` mencoba menambahkan tanda centang di opsi yang terpilih.
+
+#### Picker icon & popover transitions
+
+```css
+select::picker-icon {
+    color: #999;
+    transition: 0.4s rotate;
+}
+select:open::picker-icon {
+    rotate: 180deg;
+}
+
+@starting-style {
+    ::picker(select):popover-open {
+        opacity: 0;
+    }
+}
+::picker(select) {
+    border: none;
+    opacity: 0;
+    transition: all 0.4s allow-discrete;
+}
+::picker(select):popover-open {
+    opacity: 1;
+}
+selectedcontent .icon {
+    display: none;
+}
+```
+
+-   `::picker(select)` dan `::picker-icon` menarget UI native picker/panah; saat menu terbuka `:popover-open` / `:open diatur` opacity/transisi dan panah diputar 180° `rotate`.
+-   `@starting-style` dan `allow-discrete` adalah bagian dari proposal transisi / animation spec.
+-   `selectedcontent .icon` menyembunyikan ikon dalam area yang menampilkan pilihan yang sudah dipilih.
+
+### Navigasi `nav ul`, `.navRow`, `.text`
+
+```css
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    padding: 0.5rem 0;
+    overflow-x: visible;
+
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    width: 4.5rem;
+    padding: 1rem;
+
+    .navRow {
         display: grid;
+        grid-template-columns: 1.5rem auto;
+        gap: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        transition-duration: 0.25s;
         align-items: center;
+        background: #eaeaea;
+        border-radius: 0.5rem;
+        color: #5f6368;
+        text-decoration: none;
 
-        > img {
-            inline-size: 100%;
+        white-space: nowrap;
+        width: 2.5rem;
+        overflow-x: hidden;
+        transition: width 0.35s ease;
+
+        &:hover {
+            background: lightgray;
+            color: #333;
+            /* width: 7rem; */
+            width: max-content;
         }
+    }
+
+    .text {
+        padding-right: 0.75rem;
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
     }
 }
 ```
-- `position: sticky; top: 10svh;` viewport akan “menempel” ketika pengguna scroll sampai titik tertentu (tetap terlihat).
-- `grid-area: 1 / 1` pada `.face`, semua `.face` menumpuk di satu area (tumpukan gambar). Animasi mengganti visibility/opacitas tiap `.face`.
-- `backface-visibility: hidden` mencegah tampilan “belakang” elemen saat diputar.
-- `>img { inline-size: 100% }` memastikan gambar memenuhi lebar (atau inline-size 100%) dari kontainer.
+
+-   menu kecil (ikon) yang ketika hover melebar untuk menampilkan teks label.
+-   `grid-template-columns: 1.5rem auto` membuat kolom ikon + teks.
+-   `width: 2.5rem` default (hanya ikon terlihat), `width: max-content` saat hover membuat elemen melebar sesuai isi.
+
+### Layout galeri `.columns` & `.column`
+
+```css
+.columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 80em;
+    margin: 0 auto;
+    position: relative;
+}
+
+.column {
+    --column-offset: 10vh;
+    display: flex;
+    flex-direction: column;
+    padding: var(--column-offset) 0;
+}
+```
+
+-   Grid 3 kolom, tengah diberi batas lebar `max-width`.
+-   Setiap `.column` pakai `flex` untuk susun gambar vertikal. `--column-offset` jadi jarak vertikal di atas/bawah tiap kolom.
+
+#### Gambar
+
+```css
+.column__item-imgwrap img {
+    border-radius: 1em;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.75;
+    object-fit: cover;
+}
+```
+
+-   `aspect-ratio: 0.75` memaksa rasio tinggi/width sehingga layout konsisten.
+-   `object-fit: cover` memotong gambar agar memenuhi kotak tanpa deformasi.
+
+### Scroll-linked animation `@supports (animation-timeline: scroll())`
+
+```css
+@supports (animation-timeline: scroll()) {
+    .columns {
+        overflow-y: hidden;
+    }
+    .column-reverse {
+        flex-direction: column-reverse;
+    }
+
+    @keyframes adjust-position {
+        from {
+            transform: translateY(calc(-100% + 100vh));
+        }
+        to {
+            transform: translateY(calc(100% - 100vh));
+        }
+    }
+
+    .column-reverse {
+        animation: adjust-position linear forwards;
+        animation-timeline: scroll(root block);
+    }
+}
+```
+- `@supports(...)` memeriksa apakah browser mendukung Scroll-linked Animations (`animation-timeline`)
+- `.columns { overflow-y: hidden; }` menghindari overflow karena kita memindahkan kolom dengan transform.
+- `.column-reverse { flex-direction: column-reverse; }` membalik urutan elemen dalam kolom (gambar akan muncul terbalik).
+- `@keyframes adjust-position` mendefinisikan animasi translateY dari `-100% + 100vh` ke `100% - 100vh`. Intinya: saat halaman discroll, kolom bergeser vertikal sehingga efeknya adalah kolom tampak bergerak ke arah berlawanan (reverse).
+- `animation-timeline: scroll(root block)` mengikat progres animasi ke posisi scroll root viewport (scroll timeline).
