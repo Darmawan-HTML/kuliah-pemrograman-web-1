@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Tipe Data Dalam Array</title>
+    </head>
+    <body>
+        <script>
+            let a = [];
+            let input = prompt("masukkan data pertama");
+            let input2 = prompt("masukkan data kedua");
+            a.push(input);
+            a.push(input2);
+            a.forEach((element) => {
+                document.write(
+                    "array a index ke-" +
+                        a.indexOf(element) +
+                        " adalah " +
+                        element +
+                        "<br>"
+                );
+            });
+        </script>
+    </body>
+</html>

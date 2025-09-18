@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Perhitungan Bangun Ruang</title>
+		<style>
+			input{
+				margin-bottom: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="panjang" placeholder="masukkan panjang">
+		<br>
+		<input type="text" id="lebar" placeholder="masukkan lebar">
+		<br>
+		<input type="text" id="tinggi" placeholder="masukkan tinggi">
+		<br>
+		<input type="text" id="sisi" placeholder="masukkan sisi">
+		<br>
+		<input type="text" id="jariJari" placeholder="masukkan jari-jari">
+		<br>
+		Pilih Bangun Ruang:
+		<select id="bangunRuang">
+			<option value="kubus">Kubus</option>
+			<option value="balok">Balok</option>
+			<option value="bola">Bola</option>
+		</select>
+		<button onclick="pilih()">
+			pilih
+		</button>
+		<button onclick="hitung()">
+			hitung
+		</button>
+		<p id="hasil"></p>
+		<script>
+			function pilih(){
+				let bangunRuang = document.getElementById("bangunRuang").value
+				if(bangunRuang == "kubus"){
+					document.getElementById("sisi").style.display = "block"
+					document.getElementById("panjang").style.display = "none"
+					document.getElementById("lebar").style.display = "none"
+					document.getElementById("tinggi").style.display = "none"
+					document.getElementById("jariJari").style.display = "none"
+				}else if(bangunRuang == "balok"){
+					document.getElementById("panjang").style.display = "block"
+					document.getElementById("lebar").style.display = "block"
+					document.getElementById("tinggi").style.display = "block"
+					document.getElementById("sisi").style.display = "none"
+					document.getElementById("jariJari").style.display = "none"
+				}else if(bangunRuang == "bola"){
+					document.getElementById("jariJari").style.display = "block"
+					document.getElementById("panjang").style.display = "none"
+					document.getElementById("lebar").style.display = "none"
+				}
+			}
+			function hitung(){
+				let bangunRuang = document.getElementById("bangunRuang").value
+				if(bangunRuang == "kubus"){
+					let sisi = document.getElementById("sisi").value
+					let volume = sisi * sisi * sisi
+					document.getElementById("hasil").innerHTML = "volume kubus adalah " + volume
+				}else if(bangunRuang == "balok"){
+					let panjang = document.getElementById("panjang").value
+					let lebar = document.getElementById("lebar").value
+					let tinggi = document.getElementById("tinggi").value
+					let volume = panjang * lebar * tinggi
+					document.getElementById("hasil").innerHTML = "volume balok adalah " + volume
+				}else if(bangunRuang == "bola"){
+					let jariJari = document.getElementById("jariJari").value
+					let volume = 4/3 * Math.PI * jariJari * jariJari * jariJari
+					document.getElementById("hasil").innerHTML = "volume bola adalah " + volume
+				}
+			}
+		</script>
+	</body>
+</html>
