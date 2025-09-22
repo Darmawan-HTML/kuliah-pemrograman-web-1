@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/praktikum4style.css" />
+        <title>Galeri</title>
+    </head>
+    <body>
+        <div class="site-main">
+            <h3>Galery</h3>
+            <!-- Dropdown waifu select -->
+            <div>
+                <select id="waifu-select">
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="">Please choose a waifu</option>
+                    <option value="the-herta">
+                        <span class="icon" aria-hidden="true">😊</span>
+                        <span class="option-label">The Herta</span>
+                    </option>
+                    <option value="columbina">
+                        <span class="icon" aria-hidden="true">😚</span>
+                        <span class="option-label">Columbina</span>
+                    </option>
+                    <option value="furina">
+                        <span class="icon" aria-hidden="true">🙂</span>
+                        <span class="option-label">Furina</span>
+                    </option>
+                    <option value="elysia">
+                        <span class="icon" aria-hidden="true">😝</span>
+                        <span class="option-label">Elysia</span>
+                    </option>
+                    <option value="evernight">
+                        <span class="icon" aria-hidden="true">☺️</span>
+                        <span class="option-label">Evernight</span>
+                    </option>
+                    <option value="elaina">
+                        <span class="icon" aria-hidden="true">😅</span>
+                        <span class="option-label">Elaina</span>
+                    </option>
+                </select>
+            </div>
+            <nav>
+                <ul>
+                    <li value="Doksli">
+                        <a href="https://shaq.work" class="navRow">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="24px"
+                                viewBox="0 -960 960 960"
+                                width="24px"
+                                fill="#5f6368"
+                                class="icon"
+                            >
+                                <path
+                                    d="M760-200v-160q0-50-35-85t-85-35H273l144 144-57 56-240-240 240-240 57 56-144 144h367q83 0 141.5 58.5T840-360v160h-80Z"
+                                />
+                            </svg>
+                            <span class="text">Doksli</span>
+                        </a>
+                    </li>
+                    <li value="back">
+                        <a href="index.html" class="navRow">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="24px"
+                                viewBox="0 -960 960 960"
+                                width="24px"
+                                fill="#5f6368"
+                            >
+                                <path
+                                    d="M320-280 80-520l240-240 57 56-184 184 184 184-57 56Zm480 80v-160q0-50-35-85t-85-35H433l144 144-57 56-240-240 240-240 57 56-144 144h247q83 0 141.5 58.5T880-360v160h-80Z"
+                                />
+                            </svg>
+                            <span class="text">Back</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- modal -->
+        <div class="modal-container">
+            <div class="modal" id="modal">
+				<div id="isiModalContent">
+
+				</div>
+                <div class="actions">
+                    <button class="toggle-button">Close</button>
+                </div>
+            </div>
+        </div>
+        <!-- list photo -->
+        <div class="columns" id="columnsId">
+            <div class="column column-reverse">
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/kafka.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/chibiherta.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/yumeko.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/download.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/bronya.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/columbina.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/columbina2.jpeg" />
+                    </div>
+                </figure>
+            </div>
+            <div class="column">
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/ely.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/Herta.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/kafka2.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/Elaina.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/elyexpy.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/furina.jpeg" />
+                    </div>
+                </figure>
+            </div>
+            <div class="column column-reverse">
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/March7th.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/lilit.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/miyabi.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/vivian.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/furina2.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/kurumi.jpeg" />
+                    </div>
+                </figure>
+                <figure class="column__item">
+                    <div class="column__item-imgwrap">
+                        <img src="image/praktikum4Image/elysia.jpeg" />
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </body>
+    <script>
+        let buttons = document.querySelectorAll(".toggle-button");
+        let modal = document.querySelector("#modal");
+        let waifuSelect = document.querySelector("#waifu-select");
+        let columnsPhoto = document.querySelector("#columnsId");
+        let isiModalContent = document.querySelector("#isiModalContent");
+
+        modal.classList.toggle("off");
+
+        [].forEach.call(buttons, function (button) {
+            button.addEventListener("click", function () {
+                modal.classList.toggle("off");
+                columnsPhoto.classList.toggle("blurred");
+            });
+        });
+
+		waifuSelect.addEventListener("change", function () {
+            if(this.value == "the-herta"){
+				modal.classList.remove("off");
+				columnsPhoto.classList.add("blurred");
+				isiModalContent.innerHTML = `
+				<h2>Ini Herta</h2>
+                <div class="content">
+                    <img src="./image/praktikum4Image/Herta.jpeg" alt="" class="modal-image">
+                </div>
+				`
+			}else if(this.value == "columbina"){
+				modal.classList.remove("off");
+				columnsPhoto.classList.add("blurred");
+				isiModalContent.innerHTML = `
+				<h2>Ini Columbina</h2>
+                <div class="content">
+                    <img src="./image/praktikum4Image/columbina.jpeg" alt="" class="modal-image">
+                </div>
+				`
+			}else if(this.value == "furina"){
+				modal.classList.remove("off");
+				columnsPhoto.classList.add("blurred");
+				isiModalContent.innerHTML = `
+				<h2>Ini Furina</h2>
+                <div class="content">
+                    <img src="./image/praktikum4Image/furina.jpeg" alt="" class="modal-image">
+                </div>
+				`
+			}else if(this.value == "elysia"){
+				modal.classList.remove("off");
+				columnsPhoto.classList.add("blurred");
+				isiModalContent.innerHTML = `
+				<h2>Ini Elysia</h2>
+                <div class="content">
+                    <img src="./image/praktikum4Image/elysia.jpeg" alt="" class="modal-image">
+                </div>
+				`
+			}else if(this.value == "evernight"){
+				modal.classList.remove("off");
+				columnsPhoto.classList.add("blurred");
+				isiModalContent.innerHTML = `
+				<h2>Ini Evernight</h2>
+                <div class="content">
+                    <img src="./image/praktikum4Image/March7th.jpeg" alt="" class="modal-image">
+                </div>
+				`
+			}else if(this.value == "elaina"){
+				modal.classList.remove("off");
+				columnsPhoto.classList.add("blurred");
+				isiModalContent.innerHTML = `
+				<h2>Ini Elaina</h2>
+                <div class="content">
+                    <img src="./image/praktikum4Image/Elaina.jpeg" alt="" class="modal-image">
+                </div>
+				`
+			}else{
+				modal.classList.add("off");
+				columnsPhoto.classList.remove("blurred");
+			}
+        });
+    </script>
+</html>
