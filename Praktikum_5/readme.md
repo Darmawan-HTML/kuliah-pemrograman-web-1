@@ -15,6 +15,7 @@ Analisis:
 ## 2. Event Tertentu [`2eventTertentu.html`](2eventTertentu.html)
 Output:
 - Gambar 1
+  
   ![gambar2eventTertentu_1.png](ImageOutput/gambar2eventTertentu_1.png)
 - Gambar 2
   
@@ -44,8 +45,10 @@ Analisis:
 ## 4. Memasukkan Data [`4memasukkanData.html`](4memasukkanData.html)
 Output:
 - Gambar 1
+  
   ![gambar4memasukkanData_1.png](ImageOutput/gambar4memasukkanData_1.png)
 - Gambar 2
+  
   ![gambar4memasukkanData_2.png](ImageOutput/gambar4memasukkanData_2.png)
 
 Analisis:
@@ -62,10 +65,13 @@ Analisis:
 ## 6. Confirm [`6confirm.html`](6confirm.html)
 Output:
 - Gambar 1
+  
   ![gambar6confirm_1.png](ImageOutput/gambar6confirm_1.png)
 - Gambar 2
+  
   ![gambar6confirm_2.png](ImageOutput/gambar6confirm_2.png)
 - Gambar 3
+  
   ![gambar6confirm_3.png](ImageOutput/gambar6confirm_3.png)
 
 Analisis:
@@ -75,6 +81,7 @@ Analisis:
 
 ## 7. Mendeklarasi Variabel [`7declareVariabel.html`](7declareVariabel.html)
 Output:
+
 ![gambar7declareVariabel.png](ImageOutput/gambar7declareVariabel.png)
 
 Analisis:
@@ -86,6 +93,7 @@ Analisis:
 
 ## 8. Variabel Global [`8variabelGlobal.html`](8variabelGlobal.html)
 Output:
+
 ![gambar8variabelGlobal.png](ImageOutput/gambar8variabelGlobal.png)
 
 Analisis:
@@ -103,6 +111,7 @@ Analisis:
 
 ## 9. Variabel Local [`9variabelLokal.html`](9variabelLokal.html)
 Output:
+
 ![gambar9variabelLokal.png](ImageOutput/gambar9variabelLokal.png)
 
 Analisis:
@@ -112,6 +121,7 @@ Analisis:
 
 ## 10. Konversi Tipe Data [`10konversiTipeData.html`](10konversiTipeData.html)
 Output:
+
 ![gambar10konversiTipeData.png](ImageOutput/gambar10konversiTipeData.png)
 
 Analisis:
@@ -126,6 +136,7 @@ Analisis:
 
 ## 11. Operator Aritmatika [`11operatorAritmatika.html`](11operatorAritmatika.html)
 Output:
+
 ![gambar11operatorAritmatika.png](ImageOutput/gambar11operatorAritmatika.png)
 
 Analisis:
@@ -141,10 +152,13 @@ Analisis:
 Output:
 
 - Gambar 1
+  
   ![gambar12operatorLogikadanPembanding_1.png](ImageOutput/gambar12operatorLogikadanPembanding_1.png)
 - Gambar 2
+  
   ![gambar12operatorLogikadanPembanding_2.png](ImageOutput/gambar12operatorLogikadanPembanding_2.png)
 - Gambar 3
+  
   ![gambar12operatorLogikadanPembanding_3.png](ImageOutput/gambar12operatorLogikadanPembanding_3.png)
 
 Analisis:
