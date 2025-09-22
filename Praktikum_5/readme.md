@@ -166,3 +166,57 @@ Analisis:
 - `var hasil = (nilai >= 60) ? "Lulus" : "Tidak Lulus"`
   - Jika "nilai" lebih besar atau sama dengan 60, maka "hasil" akan bernilai "Lulus" (gambar2)
   - Jika "nilai" kurang dari 60, maka "hasil" akan bernilai "Tidak Lulus" (gambar3)
+
+
+## Tugas 1 [`tugas1.html`](tugas1.html)
+Output:
+- Gambar Input
+
+![gambarTugas1_1.png](ImageOutput/gambarTugas1_1.png)
+
+- Gambar Output
+
+![gambarTugas1_2.png](ImageOutput/gambarTugas1_2.png)
+
+## Tugas 2 [`tugas2.html`](tugas2.html)
+Output:
+- Gambar Input 1
+
+![gambarTugas2_1.png](ImageOutput/gambarTugas2_1.png)
+
+
+- Gambar Input 2
+
+![gambarTugas2_2.png](ImageOutput/gambarTugas2_2.png)
+
+- Gambar Output
+
+![gambarTugas2_3.png](ImageOutput/gambarTugas2_3.png)
+
+## Tugas 3 [`tugas3.html`](tugas3.html)
+Output:
+- Gambar Input
+
+![gambarTugas3_1.png](ImageOutput/gambarTugas3_1.png)
+
+- Gambar Output
+
+![gambarTugas3_2.png](ImageOutput/gambarTugas3_2.png)
+
+## Tugas 4 [`tugas4.html`](tugas4.html)
+Output:
+- Gambar Input
+
+![gambarTugas4_1.png](ImageOutput/gambarTugas4_1.png)
+
+- Gambar Output Volume Balok
+
+![gambarTugas4_2.png](ImageOutput/gambarTugas4_2.png)
+
+- Gambar Output Volume Kubus
+
+![gambarTugas4_3.png](ImageOutput/gambarTugas4_3.png)
+
+- Gambar Output Volume Bola
+
+![gambarTugas4_4.png](ImageOutput/gambarTugas4_4.png)
